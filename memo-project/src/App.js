@@ -1,12 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 
+//모든 컴포넌트들의 root 컴포넌트
 function App() {
-  const arr = [
-    "123123121212121212121212",
-    "123123121212121212121212",
-    "123123121212121212121212",
-  ];
   return (
     <div className="App">
       <header className="App-header">
@@ -22,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <div></div>
       </header>
     </div>
   );
