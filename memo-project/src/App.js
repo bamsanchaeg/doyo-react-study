@@ -1,7 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const arr = [
+    "123123121212121212121212",
+    "123123121212121212121212",
+    "123123121212121212121212",
+  ];
   return (
     <div className="App">
       <header className="App-header">
