@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import "./App.css";
 import MemoContainer from "./component/MemoContainer";
 import SideBar from "./component/SideBar";
@@ -31,10 +31,26 @@ function App() {
     setMemos(newMemos); // 상태 업데이트
   };
 
+  const addMemo = () => {
+    const now = new Date().getTime();
+    setMemos([
+      ...memos,
+      {
+        title: "untitled",
+        content: "",
+        createdAt: now,
+        updatedAt: now,
+      },
+    ]);
+    //마지막의 인덱스
+    setSelectedMemoIndex(memos.length);
+  };
+
   return (
     <div className="App">
       <SideBar
         memos={memos}
+        addMemo={addMemo}
         selectedMemoIndex={selectedMemoIndex}
         setSelectedMemoIndex={setSelectedMemoIndex}
       />
