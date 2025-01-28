@@ -1,0 +1,29 @@
+.MemoItem {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 5px 8px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.MemoItem.selected {
+  background-color: rgba(100, 100, 100, 0.3);
+  font-weight: 500;
+}
+.MemoItem__deleted {
+  background: none;
+  color: red;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 5px; /* 단위 추가 */
+  cursor: pointer;
+  display: none;
+}
+
+.MemoItem:hover .MemoItem__deleted {
+  /* 클래스 선택자 수정 */
+  display: inline-block;
+}

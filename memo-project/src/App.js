@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
 import "./App.css";
 import MemoContainer from "./component/MemoContainer";
-import SideBar from "./component/SideBar";
+import SideBar from "./component/Sidebar";
 //모든 컴포넌트들의 root 컴포넌트
 //컴포넌트가 변경되면(상태(State,Props)) 화면을 다시 그린다
 function App() {
@@ -46,6 +46,19 @@ function App() {
     setSelectedMemoIndex(memos.length);
   };
 
+  //불변성 주의
+  const deleteMemo = (index) => {
+    const newMemos = [...memos];
+
+    newMemos.splice(index, 1);
+
+    setMemos(newMemos);
+    if (index === selectedMemoIndex) {
+      // If the deleted memo was the selected one, select the first memo
+      setSelectedMemoIndex(0);
+    }
+  };
+
   return (
     <div className="App">
       <SideBar
@@ -53,6 +66,7 @@ function App() {
         addMemo={addMemo}
         selectedMemoIndex={selectedMemoIndex}
         setSelectedMemoIndex={setSelectedMemoIndex}
+        deleteMemo={deleteMemo}
       />
       <MemoContainer memo={memos[selectedMemoIndex]} setMemo={setMemo} />
     </div>
