@@ -1,26 +1,29 @@
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
-
+import MemoContainer from "./component/MemoContainer";
+import SideBar from "./component/SideBar";
 //모든 컴포넌트들의 root 컴포넌트
 //컴포넌트가 변경되면(상태(State,Props)) 화면을 다시 그린다
 function App() {
+  const [memos, setMemos] = useState([
+    {
+      title: "memo 1",
+      content: "this is memo 1",
+      createdAt: 164122502265, //시간 값
+      updatedAt: 164122502265, //t시간 값
+    },
+    {
+      title: "memo 2",
+      content: "this is memo 2",
+      createdAt: 164122502265, //시간 값
+      updatedAt: 164122502265, //t시간 값
+    },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div></div>
-      </header>
+      <SideBar memos={memos} />
+      <MemoContainer />
     </div>
   );
 }
