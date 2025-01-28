@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 //모든 컴포넌트들의 root 컴포넌트
+//컴포넌트가 변경되면(상태(State,Props)) 화면을 다시 그린다
 function App() {
   return (
     <div className="App">
